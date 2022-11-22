@@ -3,6 +3,8 @@ function lerp(a, b, t) {
 }
 
 let cursor = document.getElementById("cursor")
+let zoomCursor = document.getElementById('zoomCursor')
+
 const mouse = {
     x:0 , y:0
 }
@@ -15,6 +17,12 @@ let cursorZoom = 1;
 let cursorVisible = true
 
 cursor.style.height = `${cursorSize}px`
+
+
+let zoomCursorSize = 40
+let zoomCursorVisible = true
+
+zoomCursor.style.height = `${zoomCursorSize}px`
 
 document.addEventListener('mousemove', (e) => {
     mouse.x = e.clientX
@@ -52,6 +60,7 @@ const raf = () => {
     posy = lerp(posy, mouse.y, 0.2)
 
     cursor.style.transform = `translate3d(${posx - (cursorSize / 2)}px, ${posy - (cursorSize / 2)}px, 0) scale(${cursorZoom})`
+    zoomCursor.style.transform = `translate3d(${(posx - (zoomCursorSize / 2))-80}px, ${(posy - (zoomCursorSize / 2))-100}px, 0)`
     requestAnimationFrame(raf)
 }
 raf()
@@ -63,6 +72,21 @@ let validateBtn = document.getElementById('validate')
 
 let buySection = document.getElementById('buy')
 let confirmationSection = document.getElementById('confirmation')
+
+
+let productImage = document.getElementById("productImage")
+let cross = document.getElementById("cross")
+let zoomSection = document.getElementById('zoom-page')
+
+productImage.addEventListener('click', () => {
+    zoomSection.getElementsByTagName("img")[0].src = productImage.getElementsByTagName("img")[0].src
+    zoomSection.classList.toggle('open')
+    cursorVisible = false
+    cursorZoom = 0
+})
+cross.addEventListener('click', () => {
+    zoomSection.classList.toggle('open')
+})
 
 purchaseBtn.addEventListener('click', () => {
     buySection.classList.toggle('opened')
@@ -145,7 +169,6 @@ const changeGuitar = (guitar) => {
     productNameChange.innerHTML = `${newModel.name}`
     let productNameChangePrice = document.getElementById("productNameChangePrice")
     productNameChangePrice.innerHTML = `${newModel.name} <span>3349€</span>`
-    console.log(productNameChange)
 
     setTimeout(() => {
         pop1.setAttribute('src', `res/medias/img/${newModel.imgs[1]}`)
@@ -180,4 +203,6 @@ const updateSimilarities = () => {
         guitarList.append(article)
     })
 }
+
 updateSimilarities()
+
