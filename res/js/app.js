@@ -139,10 +139,45 @@ const changeGuitar = (guitar) => {
     pop2.classList.toggle('animate')
 
     pop2.setAttribute('src', `res/medias/img/${newModel.imgs[1]}`)
+    let productImageBuy = document.getElementById("productImageBuy")
+    productImageBuy.src = `res/medias/img/${newModel.imgs[0]}`
+    let productNameChange = document.getElementById("productNameChange")
+    productNameChange.innerHTML = `${newModel.name}`
+    let productNameChangePrice = document.getElementById("productNameChangePrice")
+    productNameChangePrice.innerHTML = `${newModel.name} <span>3349€</span>`
+    console.log(productNameChange)
 
     setTimeout(() => {
         pop1.setAttribute('src', `res/medias/img/${newModel.imgs[1]}`)
         pop1.classList.toggle('animate')
         pop2.classList.toggle('animate')
     }, "1000")
+    updateSimilarities()
 }
+
+let guitarList = document.getElementById('guitarList')
+
+
+const updateSimilarities = () => {
+    guitarList.innerHTML = ""
+    list.filter(g => g.showed !== true).forEach(el => {
+        let article = document.createElement("article")
+        let img = document.createElement('img')
+        let div = document.createElement('div')
+        let p = document.createElement('p')
+        let button = document.createElement('button')
+    
+        img.src = `res/medias/img/${el.imgs[0]}`
+        p.textContent = el.name
+        button.textContent = "Voir l'article"
+    
+        button.addEventListener('click', (e) => {
+            changeGuitar(el.id)
+        })
+    
+        article.append(img, div)
+        div.append(p, button)
+        guitarList.append(article)
+    })
+}
+updateSimilarities()

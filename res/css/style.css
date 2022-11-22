@@ -434,13 +434,13 @@ li::before {
     }
 }
 #pop1.animate {
-    animation: slide-out 1s cubic-bezier(0.38,-0.23, 0.27, 1.3);
+    animation: slide-out 1s cubic-bezier(0.31, 0.13, 0.27, 1.3);
 }
 #pop1 {
     z-index: 2;
 }
 #pop2.animate {
-    animation: slide-in 1s cubic-bezier(0.38,-0.23, 0.27, 1.3), fadeOut 0s linear 1s forwards;
+    animation: slide-in 1s cubic-bezier(0.31, 0.13, 0.27, 1.3), fadeOut 0s linear 1s forwards;
 }
 #pop2 {
     transform: translateX(100%);

@@ -15,29 +15,31 @@
     <section id="landing">
         <div class="similarity">
             <h1>Produits similaires</h1>
-            <article>
-                <img src="res/medias/img/guitarPink.png" alt="">
-                <div>
-                    <p>PIA3761 Édition Rose Panthère</p>
-                    <button>Voir L'Article</button>
-                </div>
-            </article>
-            
-            <article>
-                <img src="res/medias/img/guitarWhite.png" alt="">
-                <div>
-                    <p>PIA3761 Édition Blanc Étalon</p>
-                    <button>Voir L'Article</button>
-                </div>
-            </article>
-
-            <article>
-                <img src="res/medias/img/guitarYellow.png" alt="">
-                <div>
-                    <p>PIA3761 Édition Soleil Doré</p>
-                    <button>Voir L'Article</button>
-                </div>
-            </article>
+            <div id="guitarList">
+                <article>
+                    <img src="res/medias/img/guitarPink.png" alt="">
+                    <div>
+                        <p>PIA3761 Édition Rose Panthère</p>
+                        <button>Voir L'Article</button>
+                    </div>
+                </article>
+                
+                <article>
+                    <img src="res/medias/img/guitarWhite.png" alt="">
+                    <div>
+                        <p>PIA3761 Édition Blanc Étalon</p>
+                        <button>Voir L'Article</button>
+                    </div>
+                </article>
+    
+                <article>
+                    <img src="res/medias/img/guitarYellow.png" alt="">
+                    <div>
+                        <p>PIA3761 Édition Soleil Doré</p>
+                        <button>Voir L'Article</button>
+                    </div>
+                </article>
+            </div>
             <div class="more">
                 Voir plus d'article
             </div>
@@ -69,9 +71,9 @@
     <section id="buy">
         <div class="details">
             <div class="inner">
-                <div class="product-image"><img src="res/medias/img/guitarBlack.png" alt=""></div>
+                <div class="product-image"><img src="res/medias/img/guitarBlack.png" id="productImageBuy" alt=""></div>
                 <p class="label">Nom du produit</p>
-                <div class="product-name">PIA3761 Édition Noir Onyx</div>
+                <div class="product-name" id="productNameChange">PIA3761 Édition Noir Onyx</div>
                 <p class="label">Prix</p>
                 <div class="product-price">3349€</div>
                 <p class="label">Description du produit</p>
@@ -108,7 +110,7 @@
             <div class="commande">
                 <div class="label">Détails de la commande</div>
                 <ul>
-                    <li>PIA3761 Édition Noir Onyx <span>3349€</span></li>
+                    <li id="productNameChangePrice">PIA3761 Édition Noir Onyx <span>3349€</span></li>
                     <li>Étui de guitare Ibanez <span>Offert</span></li>
                     <li>Eagletone celpick 12A mediators celluloid<span>2.50€</span></li>
                     <li>Frais de ports<span>6.50€</span></li>
