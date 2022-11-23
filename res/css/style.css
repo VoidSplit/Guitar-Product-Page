@@ -14,7 +14,7 @@
     --f-light: #eff2f9;
     --f-dark: #07090F;
 
-    --cursor: #9b8031;
+    --cursor: #9b8131;
 
     --a-gold: #AA9248;
 }
@@ -36,8 +36,9 @@
     pointer-events: none;
     z-index: 999999999;
     position: absolute;
+    /*width: 150px;*/
     aspect-ratio: 1;
-    border-radius: 50%;
+    border-radius: 10px;
     background-color: var(--cursor);
     transform-origin: center;
     transition: transform .1s;
@@ -79,8 +80,8 @@ body,
 
     display: grid;
     grid-template-columns: 2fr 400px;
-    grid-template-rows: 1fr 160px 1fr;
-    grid-template-areas: "top sim" "mid sim" "bot sim";
+    grid-template-rows: 80px 1fr 160px 1fr;
+    grid-template-areas: "nav sim" "top sim" "mid sim" "bot sim";
 }
 
 .similarity {
@@ -192,7 +193,36 @@ body,
 .infos .price-wrapper button {
     font-size: 1rem;
 }
+#landing nav {
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+}
+#landing nav .inner {
+    width: 100%;
+    max-width: calc(100%);
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+}
+#landing nav .links {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+#landing nav .links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 30px;
+    transition: background-color .2s;
+}
+#landing nav .links a:hover {
+    border-radius: 5px;
+    background-color: var(--a-gold);
 
+}
+#landing nav .logo {
+    height: 25px;
+}
 /* Purchase page */
 #buy.opened {
     top: 0;
