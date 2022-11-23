@@ -203,6 +203,7 @@ body,
     max-width: calc(100%);
     display: grid;
     grid-template-columns: 1fr 3fr;
+    align-items: center;
 }
 #landing nav .links {
     display: flex;

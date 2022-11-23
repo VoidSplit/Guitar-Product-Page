@@ -16,20 +16,25 @@ let cursorSize = 20
 let cursorZoom = 1;
 let cursorVisible = true
 
-cursor.style.height = `${cursorSize}px`
 
 
 let zoomCursorSize = 40
 let zoomCursorVisible = true
+let cursorIsHidden = false
+
+cursor.style.height = `${cursorSize}px`
 
 zoomCursor.style.height = `${zoomCursorSize}px`
+cursorZoom = 0
 
 document.addEventListener('mousemove', (e) => {
     mouse.x = e.clientX
     mouse.y = e.clientY
+
+    cursorIsHidden = e.target.classList.contains('hideCursor')
     
     if(!event.clientY <= 0 || !event.clientX <= 0 || !(event.clientX >= window.innerWidth || event.clientY >= window.innerHeight)) {
-        if(cursorVisible) {
+        if(cursorVisible && cursorIsHidden == false) {
             cursorZoom = 1
         } else {
             cursorZoom = 0
@@ -37,7 +42,7 @@ document.addEventListener('mousemove', (e) => {
     }
 })
 document.addEventListener('mousedown', (e) => {
-    if(cursorVisible) {
+    if(cursorVisible && cursorIsHidden == false) {
         cursorZoom = 0.6
     } else {
         cursorZoom = 0
@@ -49,7 +54,7 @@ document.addEventListener('mouseleave', (e) => {
     }
 })
 document.addEventListener('mouseup', (e) => {
-    if(cursorVisible) {
+    if(cursorVisible && cursorIsHidden == false) {
         cursorZoom = 1
     } else {
         cursorZoom = 0
@@ -192,7 +197,9 @@ const updateSimilarities = () => {
     
         img.src = `res/medias/img/${el.imgs[0]}`
         p.textContent = el.name
+        p.classList.add('hideCursor')
         button.textContent = "Voir l'article"
+        button.classList.add('hideCursor')
     
         button.addEventListener('click', (e) => {
             changeGuitar(el.id)
